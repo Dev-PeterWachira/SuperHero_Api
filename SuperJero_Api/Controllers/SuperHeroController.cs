@@ -3,6 +3,7 @@ using SuperJero_Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using SuperJero_Api.Services;
+using DTOS;
 
 
 namespace SuperJero_Api.Controllers
@@ -11,29 +12,25 @@ namespace SuperJero_Api.Controllers
     [Route("api/[controller]")]
     public class SuperHeroController : ControllerBase
     {
-        private readonly Database _context;
-        public SuperHeroController(Database context)
-        {
-            _context = context;
-        }
-
 
         private readonly ISuperHeroService _service;
+        private readonly ILogger<SuperHeroController> _logger;
 
-        public SuperHeroController(ISuperHeroService service)
+        public SuperHeroController(ISuperHeroService service, ILogger<SuperHeroController> _logger)
         {
             _service = service;
+            _logger = logger;
         }
         
         [HttpGet]
-        public async Task<ActionResult<List<SuperHero>>> GetSuperHeroes()
+        public async Task<ActionResult<SuperHero>> GetSuperHeroes()
         {
-            var result = await _service.GetSuperHeroes();
-            if(result == null)
+            var heroes = await _service.GetSuperHeroesAsync();
+            if(heroes == null)
             {
                 return NotFound("No Heroes Found.");
             }
-            return Ok(result);
+            return Ok(heroes);
         }
 
         [HttpGet("{id}")]
@@ -46,41 +43,43 @@ namespace SuperJero_Api.Controllers
             }
             return Ok(user);
         }
-
+        [Authorize]
         [HttpPost]
-        public async Task<ActionResult<List<SuperHero>>> AddSuperHero(SuperHero hero)
+        public async Task<IActionResult> AddSuperHero(CreateSuperHeroDTO request)
         {
-            var result = await _service.AddSuperHero(hero);
-            if(result == null)
-            {
-                return BadRequest("Hero Not Added.");
-            }
-            return Ok(result);
+            var heroe = await _service.AddSuperHero(request);
+          
+            return createdAtAction(
+                nameof(GetSuperHero),
+                new {id = hero.Id},
+                hero
+            );
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<List<SuperHero>>> UpdateSuperHero(int id, SuperHero request)
+        public async Task<IActionResult> UpdateSuperHero(int id, UpdateSuperHeroDTO request)
         {
-            var result = await _service.UpdateSuperHero(id, request);
+            var hero = await _service.UpdateSuperHero(id, request);
 
-            if(result == null)
+            if(hero == null)
             {
                 return NotFound("Hero Not Found.");
             }
-            return Ok(result);
+            return Ok(hero);
         }
-
+         [Authorize]
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<SuperHero>>> DeleteSuperHero (int id)
+        public async Task<IActionResult> DeleteSuperHero (int id)
         {
-            var result = await _service.DeleteSuperHero(id);
+            var deleted = await _service.DeleteSuperHero(id);
             if(result == null)
             {
                 return NotFound("Hero Not Found.");
             }
-             return Ok(result);
+             return NoContent();
         }
 
-        }
+              
     }
+}
 

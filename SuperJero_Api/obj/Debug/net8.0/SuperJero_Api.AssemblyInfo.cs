@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SuperJero_Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+573f89ada3c11c4b4ee2a021467503867de0fe93")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cfbc8fa1a896eb324ffa21c98525eea75e81b7d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("SuperJero_Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SuperJero_Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

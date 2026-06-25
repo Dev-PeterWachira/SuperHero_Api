@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "sJfdd8IU86A=",
+  "dgSpecHash": "3ok4d9r+dXM=",
   "success": true,
   "projectFilePath": "C:\\Users\\PeterMainaWachira\\.Net\\SuperHero_Api\\SuperJero_Api\\SuperJero_Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PeterMainaWachira\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\PeterMainaWachira\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\PeterMainaWachira\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
     "C:\\Users\\PeterMainaWachira\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\PeterMainaWachira\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.26\\microsoft.aspnetcore.openapi.8.0.26.nupkg.sha512",
     "C:\\Users\\PeterMainaWachira\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

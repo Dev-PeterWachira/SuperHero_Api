@@ -1,5 +1,6 @@
 using Entities;
 using Microsoft.EntityFrameworkCore;
+using Data;
 namespace SuperJero_Api.Data
 {
     public class Database : DbContext
@@ -10,5 +11,7 @@ namespace SuperJero_Api.Data
         }
 
         public DbSet<SuperHero> SuperHeroes {get; set;}
+
+        public DbSet<User> Users {get; set;}
     }
 }
