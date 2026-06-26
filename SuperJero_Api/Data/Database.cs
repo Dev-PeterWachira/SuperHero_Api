@@ -1,6 +1,5 @@
 using Entities;
 using Microsoft.EntityFrameworkCore;
-using Data;
 namespace SuperJero_Api.Data
 {
     public class Database : DbContext

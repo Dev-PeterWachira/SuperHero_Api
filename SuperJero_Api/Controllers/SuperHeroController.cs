@@ -2,7 +2,8 @@ using Entities;
 using SuperJero_Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using SuperJero_Api.Services;
+using Services;
+using Microsoft.AspNetCore.Authorization;
 using DTOS;
 
 
@@ -16,7 +17,7 @@ namespace SuperJero_Api.Controllers
         private readonly ISuperHeroService _service;
         private readonly ILogger<SuperHeroController> _logger;
 
-        public SuperHeroController(ISuperHeroService service, ILogger<SuperHeroController> _logger)
+        public SuperHeroController(ISuperHeroService service, ILogger<SuperHeroController> logger)
         {
             _service = service;
             _logger = logger;
@@ -34,9 +35,9 @@ namespace SuperJero_Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<SuperHero>> GetSuperHero(int id)
+        public async Task<ActionResult<SuperHero>> GetSuperHeroAsync(int id)
         {
-            var user = await _service.GetSuperHero(id);
+            var user = await _service.GetSuperHeroAsync(id);
             if(user == null)
             {
                 return NotFound("Hero Not Found.");
@@ -47,10 +48,10 @@ namespace SuperJero_Api.Controllers
         [HttpPost]
         public async Task<IActionResult> AddSuperHero(CreateSuperHeroDTO request)
         {
-            var heroe = await _service.AddSuperHero(request);
+            var hero = await _service.AddSuperHeroAsync(request);
           
-            return createdAtAction(
-                nameof(GetSuperHero),
+            return CreatedAtAction(
+                nameof(GetSuperHeroAsync),
                 new {id = hero.Id},
                 hero
             );
@@ -59,7 +60,7 @@ namespace SuperJero_Api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateSuperHero(int id, UpdateSuperHeroDTO request)
         {
-            var hero = await _service.UpdateSuperHero(id, request);
+            var hero = await _service.UpdateSuperHeroAsync(id, request);
 
             if(hero == null)
             {
@@ -71,8 +72,8 @@ namespace SuperJero_Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSuperHero (int id)
         {
-            var deleted = await _service.DeleteSuperHero(id);
-            if(result == null)
+            var deleted = await _service.DeleteSuperHeroAsync(id);
+            if(deleted == false)
             {
                 return NotFound("Hero Not Found.");
             }

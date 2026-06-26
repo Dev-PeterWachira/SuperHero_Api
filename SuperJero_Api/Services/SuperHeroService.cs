@@ -4,15 +4,15 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using SuperJero_Api.Data;
 using DTOS;
-using Services;
+ 
 
 namespace Services
 {
-    public class Services : ISuperHeroService
+    public class SuperHeroService : ISuperHeroService
     {
         private readonly Database _context;
         
-        public Services(Database context)
+        public SuperHeroService(Database context)
         {
             _context = context;
         }

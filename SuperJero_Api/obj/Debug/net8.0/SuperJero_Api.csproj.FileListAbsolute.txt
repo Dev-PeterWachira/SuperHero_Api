@@ -136,3 +136,5 @@ C:\Users\PeterMainaWachira\.Net\SuperHero_Api\SuperJero_Api\obj\Debug\net8.0\ref
 C:\Users\PeterMainaWachira\.Net\SuperHero_Api\SuperJero_Api\obj\Debug\net8.0\SuperJero_Api.pdb
 C:\Users\PeterMainaWachira\.Net\SuperHero_Api\SuperJero_Api\obj\Debug\net8.0\SuperJero_Api.genruntimeconfig.cache
 C:\Users\PeterMainaWachira\.Net\SuperHero_Api\SuperJero_Api\obj\Debug\net8.0\ref\SuperJero_Api.dll
+C:\Users\PeterMainaWachira\.Net\SuperHero_Api\SuperJero_Api\bin\Debug\net8.0\BCrypt-Net-Next.dll
+C:\Users\PeterMainaWachira\.Net\SuperHero_Api\SuperJero_Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

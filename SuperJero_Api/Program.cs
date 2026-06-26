@@ -4,7 +4,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using SuperJero_Api.Data;
-using SuperJero_Api.Services;
+using Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
